@@ -1,0 +1,90 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Terra Balance</div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search products...">
+                <button onclick="searchProducts()">Search</button>
+            </div>
+            <div class="nav-links">
+                <span id="user-status">Guest</span>
+                <button id="auth-button" onclick="toggleAuth()">Login</button>
+                <button onclick="showCart()">Cart (<span id="cart-count">0</span>)</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="auth-title">Login</h2>
+            <form id="auth-form">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="auth-switch">Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign up</a></p>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <h2>Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <div class="cart-total">
+                <h3>Total: $<span id="cart-total">0</span></h3>
+                <button onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <h2>Payment Details</h2>
+            <form id="payment-form">
+                <input type="text" placeholder="Card Number" required>
+                <input type="text" placeholder="MM/YY" required>
+                <input type="text" placeholder="CVV" required>
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+    </div>
+
+    <main>
+        <!-- Products Grid -->
+        <section id="products-grid">
+            <!-- Products will be dynamically loaded here -->
+        </section>
+
+        <!-- Product Details -->
+        <section id="product-details" class="hidden">
+            <div class="product-info">
+                <!-- Product details will be dynamically loaded here -->
+            </div>
+            <div class="similar-products">
+                <h3>Similar Products</h3>
+                <div id="similar-products-grid">
+                    <!-- Similar products will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Terra Balance. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
